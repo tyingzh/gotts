@@ -13,9 +13,9 @@ import (
 
 func TestTTS(t *testing.T) {
     t.Run("StartBing", func(t *testing.T) {
-        logger.Debug(Init("127.0.0.1:3030", WithWriter(&WriterFile{Path: "/Users/tsying/Work/go/src/gozny/log/tts/"}), WithVoice(YunyangNeural), WithToken("token")))
+        logger.Debug(Init("127.0.0.1:3030", WithWriter(&WriterFile{Path: "/Users/tsying/Work/go/src/gotts/log/"}), WithVoice(YunyangNeural), WithToken("token")))
     })
     t.Run("StartAzure", func(t *testing.T) {
-        logger.Debug(Init("127.0.0.1:3030", WithWriter(&WriterFile{Path: "/Users/tsying/Work/go/src/gozny/log/tts/"}), WithVoice(YunyangNeural), WithToken("token"), WithModule(ConnModuleAzure)))
+        logger.Debug(Init("127.0.0.1:3030", WithWriter(&WriterFile{Path: "/Users/tsying/Work/go/src/gotts/log/"}), WithVoice(YunyangNeural), WithToken("token"), WithModule(ConnModuleAzure)))
     })
 }

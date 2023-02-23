@@ -1,7 +1,9 @@
 package gotts
 
 import (
+    "errors"
     "fmt"
+    "github.com/tyingzh/gotts/qiniu"
     "os"
 )
 
@@ -24,4 +26,19 @@ func (w *WriterFile) Write(reqId string, body []byte) (string, error) {
         return "", err
     }
     return filename, nil
+}
+
+type WriterQiniu struct {
+    Cfg  *qiniu.Config
+    Path string
+}
+
+func (w *WriterQiniu) Write(reqId string, body []byte) (string, error) {
+    if w.Cfg == nil {
+        return "", errors.New("七牛未配置")
+    }
+    if w.Path == "" {
+        w.Path = "tts/"
+    }
+    return w.Cfg.UploadBytes(body, fmt.Sprintf("%s%s.mp3", w.Path, reqId))
 }

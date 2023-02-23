@@ -119,7 +119,7 @@ func (c *ConnAzure) Read(s *Server) {
 func (c *ConnAzure) Heartbeat(s *Server) {
     helper.SafeGo(func() {
         pingTicket := time.NewTicker(time.Second * 30)  // max=60s
-        sendTicket := time.NewTicker(3 * time.Minute)   // max=300s
+        sendTicket := time.NewTicker(30 * time.Second)  // max=300s
         closeTicket := time.NewTicker(time.Minute * 15) // max=1200s
         // 阻塞
         for {
@@ -137,7 +137,7 @@ func (c *ConnAzure) Heartbeat(s *Server) {
                         logger.Debugf("%s ping failed: %+v", c.ID, err)
                     }
                 })
-                logger.Debugf("%s test 3 minute", c.ID)
+                logger.Debugf("%s test 30 seconds", c.ID)
             case <-closeTicket.C: // 每600s 执行一次
                 s.Conn.Delete(c.ID)
                 if c.isClosed() {

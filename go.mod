@@ -5,6 +5,7 @@ go 1.18
 require (
 	github.com/google/uuid v1.3.0
 	github.com/gorilla/websocket v1.5.0
+	github.com/qiniu/api.v7 v0.0.0-20190520053455-bea02cd22bf4
 	go.uber.org/zap v1.24.0
 )
 
