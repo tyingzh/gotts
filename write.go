@@ -19,7 +19,7 @@ type WriterFile struct {
 
 func (w *WriterFile) Write(reqId string, body []byte) (string, error) {
     if w.Path == "" {
-        w.Path = "/Users/tsying/Work/py/skytts/python_cli_demo/"
+        w.Path = os.Getenv("GOPATH") + "/src/gotts/log/"
     }
     filename := fmt.Sprintf("%s%s.mp3", w.Path, reqId)
     if err := os.WriteFile(filename, body, os.ModePerm); err != nil {
