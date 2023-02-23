@@ -1,0 +1,10 @@
+{
+  "address": ":3030",
+  "module": "bing 或 azure ",
+  "token": "token",
+  "qiniu_key": "",
+  "qiniu_secret": "",
+  "qiniu_bucket": "",
+  "qiniu_host": "",
+  "path": "语音文件输出路径"
+}

@@ -3,10 +3,18 @@
 ##### Text To Speech：文字转语音
 
 ### 实现
+
 #### golang + websocket
 
+````
+1. go mod tidy
+2. cp tts.json config.json && edit 
+3. go run main/tts.go
+````
+
 ### module
-#### 已实现 Bing/Azure两种websocket方式
+
+#### 已实现 Bing/Azure TTS
 
 #### Bing
 
@@ -29,4 +37,5 @@
 ````
 
 ### 语音输出方式
+
 #### 可通过重定义接口 Writer方式实现多种语音输出方式 
