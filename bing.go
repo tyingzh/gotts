@@ -30,7 +30,6 @@ func (c *ConnBing) Init(token string) {
 
     //logger.Debugf("connecting to %s", u.String())
     header := http.Header{}
-    //header.Add("Origin", "https://azure.microsoft.com")
     header.Add("Origin", "chrome-extension://jdiccldimpdaibmpdkjnbmckianbfold")
 
     var err error
